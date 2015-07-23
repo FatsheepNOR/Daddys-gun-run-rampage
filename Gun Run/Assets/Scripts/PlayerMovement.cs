@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	void FixedUpdate () {
 		if (canMove == true) {
-			R2D.transform.Translate (moveDir * Time.deltaTime * moveSpeed);
+			R2D.transform.Translate (moveDir * moveSpeed);
 		}
 	}
 

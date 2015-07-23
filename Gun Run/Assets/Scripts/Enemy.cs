@@ -3,15 +3,15 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 
-	public float health;
+	public int health;
 	public float points;
-	public float damage;
+	public int damage;
 	public GameObject corpse;
 	public GameObject debris;
 	public float debrisAmount;
 	public float debrisSizeVariation;
 
-	private float currentHealth;
+	private int currentHealth;
 	private float damageDelay;
 	private Renderer rend;
 	private Color origCol;
@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour {
 	
 	}
 
-	public void TakeDamage (float hp) {
+	public void TakeDamage (int hp) {
 
 		currentHealth -= hp;
 		damageDelay = 0.2f;
@@ -65,4 +65,13 @@ public class Enemy : MonoBehaviour {
 		}
 		Destroy (gameObject);
 	}
+
+	void OnTriggerEnter2D (Collider2D col) {
+		Debug.Log ("TRIGGER");
+		if (col.gameObject.name == "Player" && damage != 0) {	
+			col.GetComponent<PlayerHealth>().TakeHealth(damage);
+		}
+	}
+
+
 }

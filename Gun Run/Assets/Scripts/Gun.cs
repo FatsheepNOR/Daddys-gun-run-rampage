@@ -4,7 +4,7 @@ using System.Collections;
 public class Gun : MonoBehaviour {
 
 	public LayerMask hitAbleLayers;
-	public float damage;
+	public int damage;
 	public float delay;
 	public float ammo;
 	public float ammoConsumption;
