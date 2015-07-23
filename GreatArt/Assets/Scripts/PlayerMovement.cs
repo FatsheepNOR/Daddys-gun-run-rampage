@@ -39,9 +39,11 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	public void Jump () {
-		Debug.Log ("JUMP");
-		currentDelay = jumpDelay;
-		R2D.AddRelativeForce(jumpDir * jumpHeight);
+		if (currentDelay <= 0 && canMove == true) {
+			Debug.Log ("JUMP");
+			currentDelay = jumpDelay;
+			R2D.AddRelativeForce (jumpDir * jumpHeight);
+		}
 	}
 
 	public void StartMoving () {
