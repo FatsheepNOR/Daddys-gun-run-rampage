@@ -52,6 +52,7 @@ public class PlayerSkin : MonoBehaviour {
 		armL.sprite = arms [currentArms];
 		legR.sprite = legs [currentLegs];
 		legL.sprite = legs [currentLegs];
+		SaveSkin ();
 	}
 
 	public void NextHead () {
@@ -127,6 +128,10 @@ public class PlayerSkin : MonoBehaviour {
 	}
 
 	void OnDestroy () {
+		SaveSkin ();
+	}
+
+	public void SaveSkin () {
 		PlayerPrefs.SetInt ("currentHead", currentHead);
 		PlayerPrefs.SetInt ("currentBody", currentBody);
 		PlayerPrefs.SetInt ("currentArms", currentArms);

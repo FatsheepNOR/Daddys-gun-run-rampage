@@ -53,6 +53,7 @@ public class Gun : MonoBehaviour {
 		}
 		if (currentDelay <= 0 && reloading == true){
 			reloading = false;
+			magT.gameObject.SetActive(true);
 			currentAmmo = ammo;
 		}
 
@@ -117,6 +118,7 @@ public class Gun : MonoBehaviour {
 	void Reload (){
 		currentDelay = reloadTime;
 		reloading = true;
+		magT.gameObject.SetActive (false);
 		if (magPrefab != null) {
 			GameObject theMag = (GameObject)Instantiate (magPrefab, magT.position, magT.rotation);
 			theMag.GetComponent<Rigidbody2D> ().AddForce (theMag.transform.up * -4, ForceMode2D.Impulse);
